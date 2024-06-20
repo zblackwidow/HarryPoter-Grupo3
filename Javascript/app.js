@@ -1,6 +1,6 @@
 const urlApi = "https://hp-api.onrender.com/api"
 //console.log(urlApi);
-const urlAllCharacters = urlApi+"/characters"
+const urlAllCharacters = urlApi + "/characters"
 //console.log(urlAllCharacters);
 /*const urlAllStudents = urlAllCharacters+"/students"
 console.log(urlAllStudents);
@@ -19,14 +19,37 @@ console.log(urlHouseRavenclaw);*/
 
 let urlHouse = ""//new URL(window.location.href).searchParams.get("id");
 
-fetch(urlAllCharacters).then(response => response.json()).then(data => {
-    console.log(data);
-    allData = data
-    students = allData.filter(data => data.hogwartsStudent == true)
-    staff = allData.filter(data => data.hogwartsStaff == true)
-    console.log(staff);
-    house = [...new Set(allData.map((data) => data.house))]
-    console.log(house);
-    studentsHouse = staff.filter(data => data.house == urlHouse);    
-    console.log(studentsHouse);
-})
+const { createApp } = Vue
+
+const app = createApp({
+    data() {
+        return {
+            allData: [],
+            students: [],
+            staff: [],
+            house: [],
+            studentsHouse: []
+        }
+
+    },
+    created() {
+        this.apiData(urlAllCharacters)
+    },
+    methods: {
+        apiData(url) {
+            fetch(url).then(response => response.json()).then(data => {
+                console.log(data);
+                this.allData = data
+                this.students = this.allData.filter(data => data.hogwartsStudent == true)
+                this.staff = this.allData.filter(data => data.hogwartsStaff == true)
+                console.log(this.staff);
+                this.house = [...new Set(this.allData.map((data) => data.house))]
+                console.log(this.house);
+                this.studentsHouse = staff.filter(data => data.house == urlHouse);
+                console.log(this.studentsHouse);
+            })
+        }
+    },
+    computed: {
+    }
+}).mount('#app')
