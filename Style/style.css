@@ -36,6 +36,21 @@ a {
 .casas h1{
     margin-top: 4%;
     letter-spacing: 5px;}
+.titleSpells{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Cormorant Garamond", serif;
+  color: #D2AA6B;
+}  
+.titleSpells h1{
+  margin-top: 4%;
+  letter-spacing: 5px;
+}
+.tableCss{
+  font-family: "Cormorant Garamond", serif;
+  color: #D2AA6B;
+}
 /* CARDS */
 .contenedora{
     display: flex;
