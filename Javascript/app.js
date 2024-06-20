@@ -1,4 +1,4 @@
-const urlApi = "https://hp-api.onrender.com/api"
+const urlApi = "https://potterhead-api.vercel.app/api"
 //console.log(urlApi);
 const urlAllCharacters = urlApi + "/characters"
 //console.log(urlAllCharacters);
@@ -26,9 +26,13 @@ const app = createApp({
         return {
             allData: [],
             students: [],
+            studentsBk: [],
             staff: [],
+            staffBk: [],
             house: [],
-            studentsHouse: []
+            studentsHouse: [],
+            search: "",
+            checkboxCheck: []
         }
 
     },
@@ -41,15 +45,35 @@ const app = createApp({
                 console.log(data);
                 this.allData = data
                 this.students = this.allData.filter(data => data.hogwartsStudent == true)
+                this.studentsBk = this.allData.filter(data => data.hogwartsStudent == true)
                 this.staff = this.allData.filter(data => data.hogwartsStaff == true)
+                this.staffBk = this.allData.filter(data => data.hogwartsStaff == true)
                 console.log(this.staff);
                 this.house = [...new Set(this.allData.map((data) => data.house))]
                 console.log(this.house);
-                this.studentsHouse = staff.filter(data => data.house == urlHouse);
+                this.studentsHouse = this.staff.filter(data => data.house == urlHouse);
                 console.log(this.studentsHouse);
             })
         }
     },
     computed: {
+        filterHouse() {
+            if (window.location.href == "http://127.0.0.1:5500/page/students.html") {
+                let searchFilter = this.studentsBk.filter(dato => dato.name.toLowerCase().includes(this.search.toLowerCase()))
+                if (this.checkboxCheck.length > 0) {
+                    this.students = searchFilter.filter(data => this.checkboxCheck.includes(data.house))
+                } else {
+                    this.students = searchFilter
+                }
+            } else if (window.location.href == "http://127.0.0.1:5500/page/staff.html") {
+                let searchFilter = this.staffBk.filter(dato => dato.name.toLowerCase().includes(this.search.toLowerCase()))
+                if (this.checkboxCheck.length > 0) {
+                    this.staff = searchFilter.filter(data => this.checkboxCheck.includes(data.house))
+                } else {
+                    this.staff = searchFilter
+                }
+            }
+
+        }
     }
 }).mount('#app')

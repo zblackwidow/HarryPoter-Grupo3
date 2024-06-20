@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harry Potter - G3</title>
+    <title>Harry Potter - G3 - Students</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -21,9 +21,9 @@
         rel="stylesheet">
 </head>
 
-<body>
+<body class="w-100">
     <header>
-        <nav class="navbar sticky-top bg-body-tertiary flex-direction:between">
+        <nav class="navbar sticky-top bg-body-tertiary justify-content-between">
             <div class="container-fluid">
                 <div><img class="navbar-brand" href="#" src="../img/logo.png" alt="Logo" width="75" height="75"
                         class="d-inline-block align-text-top">
@@ -31,35 +31,71 @@
                 </div>
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">CASAS</a>
+                        <a class="nav-link active" aria-current="page" href="../index.html">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./spells.html">HECHIZOS</a>
+                        <a class="nav-link" href="./spells.html">SPELLS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./staff.html">PROFESORES</a>
+                        <a class="nav-link" href="./staff.html">STAFF</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ESTUDIANTES</a>
+                        <a class="nav-link" href="#">STUDENTS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./stats.html">ESTADISTICAS</a>
+                        <a class="nav-link" href="./stats.html">STAST</a>
+                    </li>
+                    <li v-if="favorito.length != 0" class="nav-item">
+                        <a class="nav-link" href="./favorito.html" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Contenido del popover"><img class="favorito" src="../img/ligero.png" alt=""></a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
-    <main id="app" class="d-flex row justify-content-around">
-        <div class="card-body d-flex flex-column justify-content-around">
-            <div v-for="dato in students">
-                <div class="card text-bg-dark w-25 h-25">
-                    <!-- <a :href="'./details.html?id='id"> -->
-                    <img :src="dato.image" class="card-img" :alt="dato.name">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">{{dato.name}}</h5>
+    <main id="app" class="d-flex row justify-content-around my-5 mx-auto w-75">
+        <div class="container-fluid row justify-content-center w-auto">
+            <h1 class="text-center color">Students</h1>
+            <div>
+                {{filterHouse}}
+                <div class="container-fluid row px-1 py-3 justify-content-around w-100">
+                    <div class="container-fluid d-flex row col-12 col-md-10 col-lg-7 justify-content-center w-auto m-1">
+                        <div
+                            class="container-fluid d-flex row col-12 col-md-10 col-lg-7 justify-content-center w-auto m-1">
+                            <div v-for="house in house" class="form-check col-3 col-md-1 mx-1 py-1 w-auto">
+                                <input v-model="checkboxCheck" class="form-check-input my-1 shadow" type="checkbox"
+                                    :value="house" :id="house.replace(/\s/g, '').toLowerCase()">
+                                <label class="form-check-label fw-bolder color"
+                                    :for="house.replace(/\s/g, '').toLowerCase()">
+                                    {{house}}
+                                </label>
+                            </div>
+                        </div>
                     </div>
-                    <!-- </a> -->
+
+                    <form class="d-flex col-10 col-md-5 col-lg-2 justify-content-end w-auto" role="search">
+                        <input v-model="search" id="search" class="form-control me-2" type="search" placeholder="Search"
+                            aria-label="Search">
+                    </form>
                 </div>
+            </div>
+            <div v-if="students.length == 0">
+                <div class="alert alert-danger w-75 mx-auto fs-1 h-details d-flex align-items-center justify-content-center shadow-card"
+                    role="alert">
+                    No results found.
+                </div>
+            </div>
+            <div v-for="dato in students" class="card mb-2 ms-2 py-3 bg-card" style="width: 10rem;">
+                <a class="w-100 h-100" :href="'./details.html?id='+dato.id">
+                    <img :src="dato.image" class="card-img" :alt="dato.name"
+                        onerror="this.src='https://c0.klipartz.com/pngpicture/334/405/gratis-png-harry-potter-y-la-camara-secreta-de-hogwarts-escuela-de-brujeria-y-hechiceria-universo-ficticio-de-harry-potter-harry-potter.png'">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title text-dark text-shadows">{{dato.name}}</h5>
+                        <a class="card-img-overlay position-relative favorito" href="#">
+                            <img class="position-absolute button-0 end-0 " src="/img/ligero.png" alt="">
+                        </a>
+                    </div>
+
+                </a>
             </div>
         </div>
     </main>
@@ -80,7 +116,7 @@
                     d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
                 </path>
             </svg>
-            <span class="text">Jonatan</span>
+            <span class="text">Jonathan</span>
         </button>
         <!-- Aaron -->
         <button class="Btn">
@@ -91,14 +127,14 @@
             </svg>
             <span class="text">Aaron</span>
         </button>
-        <!-- Alejandro -->
+        <!-- Wilmer -->
         <button class="Btn">
             <svg class="svgIcon" viewBox="0 0 496 512" height="1.4em" xmlns="https://github.com/zblackwidow">
                 <path
                     d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
                 </path>
             </svg>
-            <span class="text">Alejandro</span>
+            <span class="text">Wilmer</span>
         </button>
         <!-- Andres -->
         <button class="Btn">
