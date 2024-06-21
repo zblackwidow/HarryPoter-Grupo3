@@ -23,40 +23,79 @@
 
 <body>
     <header>
-        <nav class="navbar sticky-top bg-body-tertiary flex-direction:between">
-            <div class="container-fluid">
-                <div><img class="navbar-brand" href="#" src="/img/logo.png" alt="Logo" width="75" height="75"
+        <nav class="navbar sticky-top navbar-expand-md bg-body-tertiary sticky-top">
+            <div class="container-fluid row">
+                <div class="col">
+                    <img class="navbar-brand img-fluid" href="#" src="/img/logo.png" alt="Logo" width="100" height="100"
                         class="d-inline-block align-text-top">
-                    <a href="#">Hogwarts Spells </a>
                 </div>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/index.html">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">SPELLS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/page/staff.html">STAFF</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Pages/detailstudent.html">STUDENTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/page/stats.html">STATISTICS</a>
-                    </li>
-
-                </ul>
+                <div class="col-4">
+                    <a href="#" class="h1 titleSpells">Hogwarts Spells</a>
+                </div>
+                <div class="btn col">
+                    <button type="button" class="navbar-toggler btn btn-outline-warning border-warning btn1"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="col-6 collapse nav navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/index.html">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">SPELLS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/page/staff.html">STAFF</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Pages/detailstudent.html">STUDENTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Pages/detailstudent.html">STATISTICS</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
-    <main id="aplicationSpell">
-        <div class="titleSpells">
+    <main id="aplicationSpell" class="mt-5">
+        <div class="container-fluid d-flex justify-content-center">
+            <select class="form-select form-select-lg mb-3 me-2 border-warning titleSpells bg-black w-25"
+                aria-label="Large select example">
+                <option selected>Sort By</option>
+                <option value="categorys">Name</option>
+                <option value="categorys">Category</option>
+            </select>
+            <select class="form-select form-select-lg mb-3 border-warning titleSpells bg-black w-25"
+                aria-label="Large select example">
+                <option selected>Order↑↓</option>
+                <option value="categorys">Upward</option>
+                <option value="categorys">Falling</option>
+            </select>
+            <form class="d-flex p-2 mb-3 border-warning titleSpells bg-black flex-shrink-1" role="search">
+                <input v-model="textoBuscar" class="form-control me-2 titleSpells" type="search" placeholder="Search Name" aria-label="Search" >
+            </form>
+        </div>
+        <!-- <div class="h2 titleSpells container-fluid mt-3">
+           <h2>Select Category ↓</h2>
+        </div> -->
+
+        <!-- <div class="row m-0 mt-2 p-0 container-fluid " v-for="categorys in category">
+            <div class="form-check form-check-inline titleSpells d-flex flex-wrap col">
+                <input class="form-check-input " type="checkbox" :id="categorys" :value="categorys">
+                <label class="form-check-label titleSpells" :for="categorys"></label>{{categorys}}
+            </div>
+        </div> -->
+
+        <div class="titleSpells container-fluid text-center">
             <h1>SPELLS OF HOGWARTS</h1>
         </div>
-        <table class="table-bordered border-primary tableCss">
+        <table class="table-bordered border-info-subtle tableCss">
             <thead>
-                <tr class="text-nowrap bg-body-prima border h5 text-white">
+                <tr class="text-nowrap bg-black h5 text-white">
                     <th>Name</th>
                     <th colspan="2">Effect</th>
                     <th colspan="2">Category</th>

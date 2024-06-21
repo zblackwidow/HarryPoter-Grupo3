@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
 /* NAV BAR */
 nav {
     font-family: "Sofia Sans", sans-serif;
@@ -37,9 +42,7 @@ a {
     margin-top: 4%;
     letter-spacing: 5px;}
 .titleSpells{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ 
   font-family: "Cormorant Garamond", serif;
   color: #D2AA6B;
 }  
@@ -50,6 +53,9 @@ a {
 .tableCss{
   font-family: "Cormorant Garamond", serif;
   color: #D2AA6B;
+}
+.btn1{
+  background-color: #D2AA6B;
 }
 /* CARDS */
 .contenedora{
@@ -140,7 +146,6 @@ main{
 
 /* BACKGROUND BODY */
 body {
-    height: 100vh;
     background: rgb(0, 0, 0);
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(99, 88, 157, 1) 31%, rgba(75, 67, 122, 1) 54%, rgba(0, 0, 0, 1) 66%);
 }
@@ -206,3 +211,7 @@ footer img{
     opacity: 0;
     transition-duration: .3s;
   }
+  header{
+    height: 7rem;
+  }
+  
