@@ -7,10 +7,6 @@ const aplicationSpell = createApp({
     data() {
         return {
             spell: [],
-            image: [],
-            name: [],
-            description: [],
-            effect: [],
             category: [],
             search: "",
             selectOrder: ``,
@@ -24,18 +20,10 @@ const aplicationSpell = createApp({
     methods: {
         traerData(url) {
             fetch(url).then(response => response.json()).then(datas => {
-                console.log(datas);
                 let { data } = datas
-                console.log(data);
-
-                this.image = data.map((e) => e.attributes.image)
-                this.name = data.map((e) => e.attributes.name)
-                this.description = data.map((e) => e.attributes.description)
-                this.effect = data.map((e) => e.attributes.effect)
                 this.category = Array.from(new Set(data.map((e) => e.attributes.category)))
                 this.spell = data
                 this.spellBk = data
-                console.log(this.spell);
             })
         }
     },
@@ -43,10 +31,7 @@ const aplicationSpell = createApp({
         filter() {
             let filterText = this.spellBk.filter(e => e.attributes.name.toLowerCase().includes(this.search.toLowerCase().trim()))
             this.spell = filterText
-
-            let nameDesc = this.name.sort((a, b) => b.localeCompare(a))
-            console.log(nameDesc);
-
+        
             let sorts = this.selectSort
             let orders = this.selectOrder
 
