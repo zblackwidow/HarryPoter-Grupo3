@@ -17,8 +17,7 @@ console.log(urlHouseHufflepuff);
 const urlHouseRavenclaw = urlHouse+"/ravenclaw"
 console.log(urlHouseRavenclaw);*/
 
-let urlHouse = ""//new URL(window.location.href).searchParams.get("id");
-
+let urlHouse = new URL(window.location.href).searchParams.get("id");
 const { createApp } = Vue
 
 const app = createApp({
@@ -32,7 +31,9 @@ const app = createApp({
             house: [],
             studentsHouse: [],
             search: "",
-            checkboxCheck: []
+            checkboxCheck: [],
+            studentsFavorite: JSON.parse(localStorage.getItem('studentsFavorite')) || [],
+            staffFavorite: JSON.parse(localStorage.getItem('staffFavorite')) || []
         }
 
     },
@@ -44,16 +45,53 @@ const app = createApp({
             fetch(url).then(response => response.json()).then(data => {
                 console.log(data);
                 this.allData = data
+                this.allData.forEach(dato => {
+                    if (!dato.house || dato.house.trim() === "") {
+                        dato.house = "Homeless"
+                    }
+                });
                 this.students = this.allData.filter(data => data.hogwartsStudent == true)
                 this.studentsBk = this.allData.filter(data => data.hogwartsStudent == true)
                 this.staff = this.allData.filter(data => data.hogwartsStaff == true)
                 this.staffBk = this.allData.filter(data => data.hogwartsStaff == true)
-                console.log(this.staff);
                 this.house = [...new Set(this.allData.map((data) => data.house))]
-                console.log(this.house);
                 this.studentsHouse = this.staff.filter(data => data.house == urlHouse);
-                console.log(this.studentsHouse);
-            })
+            });
+        },
+        addFavorite(dato) {
+            if (window.location.href == "http://127.0.0.1:5500/page/students.html") {
+                if (!this.isFavorite(dato)) {
+                    this.studentsFavorite.push(dato)
+                    localStorage.setItem('studentsFavorite', JSON.stringify(this.studentsFavorite))
+                }
+            } else if (window.location.href == "http://127.0.0.1:5500/page/staff.html") {
+                if (!this.isFavorite(dato)) {
+                    this.staffFavorite.push(dato)
+                    localStorage.setItem('staffFavorite', JSON.stringify(this.staffFavorite))
+                }
+            }
+        },
+        deleteFavorite(dato) {
+            if (window.location.href == "http://127.0.0.1:5500/page/students.html") {
+                const index = this.studentsFavorite.findIndex(data => data.id === dato.id)
+                if (index !== -1) {
+                    this.studentsFavorite.splice(index, 1)
+                    localStorage.setItem('studentsFavorite', JSON.stringify(this.studentsFavorite))
+                }
+            } else if (window.location.href == "http://127.0.0.1:5500/page/staff.html") {
+                const index = this.staffFavorite.findIndex(data => data.id === dato.id)
+                if (index !== -1) {
+                    this.staffFavorite.splice(index, 1)
+                    localStorage.setItem('staffFavorite', JSON.stringify(this.staffFavorite))
+                }
+            }
+        },
+        isFavorite(dato) {
+            if (window.location.href == "http://127.0.0.1:5500/page/students.html") {
+                return this.studentsFavorite.some(data => data.id === dato.id);
+            } else if (window.location.href == "http://127.0.0.1:5500/page/staff.html") {
+                return this.staffFavorite.some(data => data.id === dato.id);
+            }
         }
     },
     computed: {
@@ -73,7 +111,6 @@ const app = createApp({
                     this.staff = searchFilter
                 }
             }
-
         }
     }
 }).mount('#app')
