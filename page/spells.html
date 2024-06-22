@@ -62,22 +62,26 @@
         </nav>
     </header>
     <main id="aplicationSpell" class="mt-5">
-        <div class="container-fluid d-flex justify-content-center">
-            <select class="form-select form-select-lg mb-3 me-2 border-warning titleSpells bg-black w-25"
+        <div class="container-fluid d-flex justify-content-center row">
+            {{filter}}
+            <select v-model="selectSort" class="col form-select form-select-lg mb-3 me-2 border-warning titleSpells bg-black w-25"
                 aria-label="Large select example">
-                <option selected>Sort By</option>
-                <option value="categorys">Name</option>
-                <option value="categorys">Category</option>
+                <option v-if="selectSort === ``" disabled value="">Sort By</option>
+                <option value="name">Name</option>
+                <option value="category">Category</option>
             </select>
-            <select class="form-select form-select-lg mb-3 border-warning titleSpells bg-black w-25"
-                aria-label="Large select example">
-                <option selected>Order↑↓</option>
-                <option value="categorys">Upward</option>
-                <option value="categorys">Falling</option>
+            <select v-model="selectOrder" class="col form-select form-select-lg mb-3 border-warning titleSpells bg-black w-25" aria-label="Large select example">
+                <option v-if="selectOrder === ``" disabled value="">Order↑↓</option>
+                <option value="upward">Upward</option>
+                <option value="falling">Falling</option>
             </select>
-            <form class="d-flex p-2 mb-3 border-warning titleSpells bg-black flex-shrink-1" role="search">
-                <input v-model="textoBuscar" class="form-control me-2 titleSpells" type="search" placeholder="Search Name" aria-label="Search" >
+            <form class="col-4 d-flex p-2 mb-3 border-warning titleSpells bg-black flex-shrink-1" role="search">
+                <input v-model="search" class="form-control me-2 titleSpells bg-warning-subtle" type="search" placeholder="Search Name" aria-label="Search" >
             </form>
+            <div v-if="spell.length ===  0" class="titleSpells text-center h1">
+                <p>.·´¯`(>▂<)´¯`·. </p>
+                <h2>🧙‍♂️🧙‍♂️No results found🧙‍♂️🧙‍♂️<h2>
+            </div>
         </div>
         <!-- <div class="h2 titleSpells container-fluid mt-3">
            <h2>Select Category ↓</h2>
@@ -93,9 +97,9 @@
         <div class="titleSpells container-fluid text-center">
             <h1>SPELLS OF HOGWARTS</h1>
         </div>
-        <table class="table-bordered border-info-subtle tableCss">
+        <table class="table-bordered border-info-subtle tableCss w-75">
             <thead>
-                <tr class="text-nowrap bg-black h5 text-white">
+                <tr class="text-nowrap text-center bg-black titleSpells text-white">
                     <th>Name</th>
                     <th colspan="2">Effect</th>
                     <th colspan="2">Category</th>
