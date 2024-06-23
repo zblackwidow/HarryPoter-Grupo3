@@ -11,7 +11,7 @@ nav {
     font-family: "Sofia Sans", sans-serif;
 }
 
-a {
+nav a {
     color: #D2AA6B;
     text-decoration: none;
     font-size: 28px;
@@ -120,8 +120,8 @@ main{
     color: white;
     font-size: 17px;
   }
+  /* DIV DETAILS HOUSES */
   
-
 
 /* BACKGROUND BODY */
 body {
