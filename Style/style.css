@@ -24,6 +24,10 @@ nav a {
 /*         FIN DE NAVBAR                */
 
 /* MAIN */
+/* img de casas  */
+.imgcasas{
+  width: 100%;
+}
 /* DIV CASAS */
 .casas{
     height: 50vh;
@@ -49,9 +53,7 @@ nav a {
     box-sizing: border-box;
     width: 230px;
     height: 350px;
-    background: rgba(217, 217, 217, 0.58);
-    border: 1px solid white;
-    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    
     backdrop-filter: blur(6px);
     border-radius: 17px;
     text-align: center;
@@ -66,8 +68,8 @@ nav a {
   }
   
   .cardcasa:hover {
-    border: 1px solid black;
-    transform: scale(1.05);
+ 
+    transform: scale(1.10);
   }
   
   .cardcasa:active {
@@ -122,6 +124,9 @@ main{
   }
   /* DIV DETAILS HOUSES */
   
+  .houseCard{
+    width: 60%;
+  }
 
 /* BACKGROUND BODY */
 body {
