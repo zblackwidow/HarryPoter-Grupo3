@@ -12,7 +12,7 @@ const aplicationSpell = createApp({
             selectOrder: ``,
             selectSort: ``,
             spellBk: [],
-            categorySelect: [],
+            categorySelect: ``,
         }
     },
     created() {
