@@ -55,7 +55,7 @@ const app = createApp({
                 this.staff = this.allData.filter(data => data.hogwartsStaff == true)
                 this.staffBk = this.allData.filter(data => data.hogwartsStaff == true)
                 this.house = [...new Set(this.allData.map((data) => data.house))]
-                this.studentsHouse = this.staff.filter(data => data.house == urlHouse);
+                this.studentsHouse = this.studentsBk.filter(data => data.house == urlHouse);
             });
         },
         addFavorite(dato) {
