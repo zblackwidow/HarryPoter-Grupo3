@@ -18,8 +18,8 @@ function mostrarPersonajes(personajes) {
     cardContainer.innerHTML = ''; 
     personajes.forEach(personaje => {
         let cardContenedor = `
-            <div class="card d-flex m-1" style="width: 12%;">
-                <img class="img2" src="${personaje.image}" alt="${personaje.name}">
+            <div class="card">
+                <a href="/index.html"> <img class="img2" src="${personaje.image}" style="width: 200px" alt="${personaje.name}"></a>
                 <div class="texto3">
                     <h4>${personaje.name}</h4>
                 </div>
