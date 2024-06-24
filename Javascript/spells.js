@@ -12,13 +12,14 @@ const aplicationSpell = createApp({
             selectOrder: ``,
             selectSort: ``,
             spellBk: [],
+            categorySelect: [],
         }
     },
     created() {
-        this.traerData(urlApi)
+        this.date(urlApi)
     },
     methods: {
-        traerData(url) {
+        date(url) {
             fetch(url).then(response => response.json()).then(datas => {
                 let { data } = datas
                 this.category = Array.from(new Set(data.map((e) => e.attributes.category)))
@@ -30,8 +31,13 @@ const aplicationSpell = createApp({
     computed: {
         filter() {
             let filterText = this.spellBk.filter(e => e.attributes.name.toLowerCase().includes(this.search.toLowerCase().trim()))
-            this.spell = filterText
-        
+
+            if (this.categorySelect.length > 0) {
+                this.spell = filterText.filter(e => this.categorySelect.includes(e.attributes.category))
+            } else {
+                this.spell = filterText
+            }
+
             let sorts = this.selectSort
             let orders = this.selectOrder
 
