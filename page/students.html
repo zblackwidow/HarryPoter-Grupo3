@@ -28,7 +28,8 @@
             <nav class="navbar sticky-top navbar-expand-md bg-body-tertiary sticky-top">
                 <div class="container-fluid row">
                     <div class="col col-sm-1">
-                        <img class="navbar-brand img-fluid d-inline-block align-text-top" href="#" src="/img/logo.png" alt="Logo">
+                        <img class="navbar-brand img-fluid d-inline-block align-text-top" href="#" src="/img/logo.png"
+                            alt="Logo">
                     </div>
                     <div class="col col-sm-1">
                         <a class="namePage fs-5" href="#">Hogwarts</a>
@@ -68,8 +69,7 @@
                             <img class="favoriteImg w-100 h-100" src="../img/ligero.png" alt="">
                         </button>
                         <div id="message" popover>
-                            <div v-for="dato in studentsFavorite" class="card mb-2 ms-2 py-3 bg-card"
-                                style="width: 10rem;">
+                            <div v-for="dato in studentsFavorite" class="card px-3 bg-card" style="width: 10rem;">
                                 <a class="w-100 h-100" :href="'./details.html?id='+dato.id">
                                     <div class="card-body">
                                         <h5 class="card-title text-dark text-shadows mx-auto my-auto">
@@ -77,6 +77,10 @@
                                         </h5>
                                     </div>
                                 </a>
+                                <button v-else @click="deleteFavorite(dato)"
+                                    class="card-img-overlay favorite nav-link m-2 position-absolute">
+                                    <img class="position-absolute top-0 start-0" src="/img/ligero.png" alt="">
+                                </button>
                             </div>
                         </div>
                     </div>
