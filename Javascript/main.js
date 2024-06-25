@@ -24,17 +24,15 @@ function HouseDetails(houseId) {
 
             if (filteredCharacters.length > 0) {
                 houseNameElement.textContent = houseId;
-                
+
                 filteredCharacters.forEach(student => {
                     const studentImage = student.image || '/img/undefinedStudent.png';
                     const characterCard = document.createElement('div');
                     characterCard.innerHTML = `
-                        <div class="carddetails p-2 m-3">
-                        <a href="/page/details.html?value=${student.id}"> 
-                        <h5 class="card-title">${student.name}</h5>
-                        <img class="studentImg w-100 h-100 object-fit-cover" src="${studentImage}" alt="${student.name}">
-                        </a>   
-                        </div>
+                    <div class="tarjetaDetails m-3"><a href="/page/details.html?id=${student.id}">
+                    <img src="${studentImage}" class="img w-100 h-100 object-fit-cover">
+                    <div class="profile-name"> ${student.name}</a></div>
+                     </div>
                     `;
                     characterList.appendChild(characterCard);
                 });
