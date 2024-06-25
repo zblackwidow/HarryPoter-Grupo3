@@ -109,14 +109,14 @@
                     <div class="container-fluid d-flex row col-12 col-md-10 col-lg-7 justify-content-center w-auto m-1">
                         <div v-for="house in house" class="form-check col-3 col-md-1 px-4 w-auto">
                             <div class="checkbox-wrapper-12">
-                                <div class="cbx mx-4">
+                                <div class="cbx mx-5">
                                     <input v-model="checkboxCheck" type="checkbox" :value="house"
                                         :id="house.replace(/\s/g, '').toLowerCase()">
                                     <label class="color" :for="house.replace(/\s/g, '').toLowerCase()"></label>
                                     <svg width="14" height="13" viewBox="-2 0 14 13" fill="none">
                                         <path d="M2 8.36364L6.23077 12L13 2"></path>
                                     </svg>
-                                    <label class="color ps-4 ms-1"
+                                    <label class="color ps-4 ms-2 fw-bold fs-5"
                                         :for="house.replace(/\s/g, '').toLowerCase()">{{house}}</label>
                                 </div>
 
