@@ -65,9 +65,8 @@ nav a {
   letter-spacing: 5px;
 }
 
-.tableCss {
-  font-family: "Cormorant Garamond", serif;
-  color: #D2AA6B;
+.searchName{
+  height: 2rem;
 }
 
 .btn1 {
@@ -187,6 +186,9 @@ nav a {
 .minh form {
   max-height: 4vh;
 }
+.minhead{
+  min-height: 6rem;
+}
 
 .package {
   width: 200px;
@@ -247,6 +249,9 @@ footer {
   align-items: center;
   height: 7vh;
   background-color: black;
+}
+.imgPatronus{
+  height: 25vw;
 }
 
 footer img {
