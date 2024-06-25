@@ -59,11 +59,11 @@ const aplicationSpell = createApp({
                 this.spell = categoryDes
             }
             if (sorts === "effectup") {
-                let effectUp = this.spell.sort((a, b) => a.attributes.effect.localeCompare(b.attributes.category))
+                let effectUp = this.spell.sort((a, b) => a.attributes.effect.localeCompare(b.attributes.effect))
                 this.spell = effectUp
             }
             if (sorts === "effectfall") {
-                let effectFall = this.spell.sort((a, b) => b.attributes.effect.localeCompare(a.attributes.category))
+                let effectFall = this.spell.sort((a, b) => b.attributes.effect.localeCompare(a.attributes.effect))
                 this.spell = effectFall
             }
         }
