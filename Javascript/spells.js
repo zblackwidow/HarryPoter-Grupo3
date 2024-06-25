@@ -31,11 +31,7 @@ const aplicationSpell = createApp({
         filter() {
             let filterText = this.spellBk.filter(e => e.attributes.name.toLowerCase().includes(this.search.toLowerCase().trim()))
 
-            if (this.categorySelect.length > 0) {
-                this.spell = filterText.filter(e => this.categorySelect.includes(e.attributes.category))
-            } else {
-                this.spell = filterText
-            }
+            this.categorySelect.length > 0? this.spell = filterText.filter(e => this.categorySelect.includes(e.attributes.category)) :  this.spell = filterText;
 
             let sorts = this.selectSort
 
