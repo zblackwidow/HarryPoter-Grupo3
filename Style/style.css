@@ -135,7 +135,9 @@ nav a{
   background-color: #D2AA6B;
 }
 
-
+.h1detail{
+  font-size: 7vw;
+}
 .menu {
   margin-top: 1%;
   width: 50%;
