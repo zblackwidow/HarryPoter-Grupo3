@@ -16,7 +16,7 @@ const urlHouseHufflepuff = urlHouse+"/hufflepuff"
 console.log(urlHouseHufflepuff);
 const urlHouseRavenclaw = urlHouse+"/ravenclaw"
 console.log(urlHouseRavenclaw);*/
-
+let idDetails = new URL(window.location.href).searchParams.get("id")
 let urlHouse = new URL(window.location.href).searchParams.get("id");
 const { createApp } = Vue
 
@@ -33,7 +33,8 @@ const app = createApp({
             search: "",
             checkboxCheck: [],
             studentsFavorite: JSON.parse(localStorage.getItem('studentsFavorite')) || [],
-            staffFavorite: JSON.parse(localStorage.getItem('staffFavorite')) || []
+            staffFavorite: JSON.parse(localStorage.getItem('staffFavorite')) || [],
+            details: []
         }
 
     },
@@ -56,6 +57,8 @@ const app = createApp({
                 this.staffBk = this.allData.filter(data => data.hogwartsStaff == true)
                 this.house = [...new Set(this.allData.map((data) => data.house))]
                 this.studentsHouse = this.studentsBk.filter(data => data.house == urlHouse);
+                this.details = this.allData.filter(dato => dato.id == idDetails);
+                console.log(this.details);
             });
         },
         addFavorite(dato) {
