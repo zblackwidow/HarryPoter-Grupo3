@@ -1,4 +1,4 @@
-* {
+*{
   margin: 0;
   box-sizing: border-box;
   padding: 0;
@@ -90,6 +90,13 @@ nav a{
 .searchName {
   height: 2rem;
 }
+
+
+.btn1 {
+  background-color: #D2AA6B;
+}
+
+
 
 /* DIV DE LAS CASAS EN INDEX */
 .contCasas {
@@ -260,8 +267,9 @@ nav a{
   max-height: 4vh;
 }
 
-.minhead {
-  min-height: 6rem;
+.minhead{
+  min-height: 7rem;
+ width: 97vw;
 }
 
 .package {

@@ -23,6 +23,7 @@
 
 <body>
 
+
     <header class="minhead">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
@@ -50,13 +51,14 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="stats.html">STATISTICS</a>
+
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <main id="aplicationSpell" class="minh mt-5">
+    <main id="aplicationSpell" class="minh mt-2">
         <div class="d-flex justify-content-center position-relative">
             <img src="/img/expecto-patronum-hechizos-harry-potter.jpg"
                 class="img-fluid w-100 rounded imgPatronus object-fit-cover" alt="Expecto Patronum">
@@ -64,22 +66,18 @@
                 <h1 class="display-4">SPELLS OF HOGWARTS</h1>
             </div>
         </div>
-        <div class="d-flex justify-content-center row w-100 mt-3 mb-2">
+        <div class="d-flex justify-content-center row w-100 mt-3 mb-4">
             {{filter}}
             <div class="col-md col-6">
                 <select v-model="selectSort" class="form-select border-warning titleSpells bg-black ms-1 mt-2"
                     aria-label="Large select example">
                     <option value="">Sort By</option>
-                    <option value="name">Name</option>
-                    <option value="category">Category</option>
-                </select>
-            </div>
-            <div class="col-md col-6">
-                <select v-model="selectOrder" class="form-select mt-2 border-warning titleSpells bg-black"
-                    aria-label="Large select example">
-                    <option value="">Order↑↓</option>
-                    <option value="upward">Upward</option>
-                    <option value="falling">Falling</option>
+                    <option value="nameup">Name Upward</option>
+                    <option value="namefall">Name Falling</option>
+                    <option value="categoryup">Category Upward</option>
+                    <option value="categoryfall">Category Falling</option>
+                    <option value="effectup">Effect Upward</option>
+                    <option value="effectfall">Effect Falling</option>
                 </select>
             </div>
             <div class="col-md col-6">
@@ -96,33 +94,33 @@
                 </form>
             </div>
         </div>
-        <div class="d-flex w-100 justify-content-center mb-3 row ">
-            <table class="table-bordered border-info-subtle titleSpells col-10">
+       
+            <table id="table" class="table-bordered border-info-subtle titleSpells caption-top container">
                 <thead class="h4">
-                    <tr class="text-center bg-black text-white px-5">
-                        <th class="p-2">Name</th>
-                        <th class="p-2">Effect</th>
-                        <th class="p-2">Category</th>
+                    <tr class="text-center bg-black  px-auto py-auto">
+                        <th class="p-2" scope="col">Name</th>
+                        <th class="p-2" scope="col">Effect</th>
+                        <th class="p-2" scope="col">Category</th>
                     </tr>
                 </thead>
                 <tbody class="h5">
-                    <tr v-for="spells in spell" class=" px-5">
-                        <td class="p-2">🪄{{spells.attributes.name}}</td>
+                    <tr v-for="spells in spell" class="text-white py-auto px-auto">
+                        <th class="p-2" scope="row">🪄{{spells.attributes.name}}</th>
                         <td class="p-2">{{spells.attributes.effect}}</td>
                         <td class="p-2">{{spells.attributes.category}}</td>
                     </tr>
                 </tbody>
                 <tfoot class="h5">
-                    <tr v-if="spell.length ===  0" class=" text-center px5">
-                        <td colspan="3">.·´¯`(>▂<)´¯`·. </td>
+                    <tr v-if="spell.length ===  0" class=" text-center px-auto">
+                        <th colspan="3" scope="row">.·´¯`(>▂<)´¯`·. </th>
                     </tr>
-                    <tr v-if="spell.length ===  0" class="text-center ">
+                    <tr v-if="spell.length ===  0" class="text-center">
                         <td colspan="3">🧙‍♂️🧙‍♂️No results found🧙‍♂️🧙‍♂️</td>
                     </tr>
                 </tfoot>
             </table>
-        </div>
-           
+    
+            
     </main>
     <footer>
          <!-- Alejandra -->
