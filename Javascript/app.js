@@ -1,23 +1,8 @@
 const urlApi = "https://potterhead-api.vercel.app/api"
-//console.log(urlApi);
 const urlAllCharacters = urlApi + "/characters"
-//console.log(urlAllCharacters);
-/*const urlAllStudents = urlAllCharacters+"/students"
-console.log(urlAllStudents);
-const urlAllStaff = urlAllCharacters+"/staff"
-console.log(urlAllStaff);
-const urlHouse = urlAllCharacters+"/house"
-console.log(urlHouse);
-const urlHouseGryffindor = urlHouse+"/gryffindor"
-console.log(urlHouseGryffindor);
-const urlHouseSlytherin = urlHouse+"/slytherin"
-console.log(urlHouseSlytherin);
-const urlHouseHufflepuff = urlHouse+"/hufflepuff"
-console.log(urlHouseHufflepuff);
-const urlHouseRavenclaw = urlHouse+"/ravenclaw"
-console.log(urlHouseRavenclaw);*/
 let idDetails = new URL(window.location.href).searchParams.get("id")
 let urlHouse = new URL(window.location.href).searchParams.get("id");
+
 const { createApp } = Vue
 
 const app = createApp({
