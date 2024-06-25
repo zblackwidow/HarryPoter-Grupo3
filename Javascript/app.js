@@ -1,5 +1,4 @@
-const urlApi = "https://potterhead-api.vercel.app/api"
-const urlAllCharacters = urlApi + "/characters"
+const urlApi = "https://potterhead-api.vercel.app/api/characters"
 let idDetails = new URL(window.location.href).searchParams.get("id")
 let urlHouse = new URL(window.location.href).searchParams.get("id");
 
