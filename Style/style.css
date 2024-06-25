@@ -3,15 +3,14 @@
   box-sizing: border-box;
   padding: 0;
 }
+
 /* Se mergeo bien */
 /* BACKGROUND BODY */
 body {
   font-family: "Cormorant Garamond", serif;
   background: rgb(0, 0, 0);
   background: linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(99, 88, 157, 1) 31%, rgba(75, 67, 122, 1) 54%, rgba(0, 0, 0, 1) 66%);
-
 }
-
 /* div principal */
 .houses {
   display: flex;
@@ -27,23 +26,34 @@ body {
 nav {
   font-family: "Sofia Sans", sans-serif;
   background-color: none;
+  color: #D2AA6B;
 }
-
+nav a{
+  text-decoration: none;
+  color: #D2AA6B;
+}
 .nav-link {
   color: #D2AA6B;
   font-weight: bold;
-  font-family: "Sofia Sans", sans-serif;
-}
-
-nav a {
-  color: #D2AA6B;
-  text-decoration: none;
-  font-size: 28px;
-}
+  --bs-nav-link-hover-color: #d2aa6b;
+  }
 
 .bg-body-tertiary {
   background-color: #f7f7f700;
   --bs-bg-opacity: 0;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand p {
+  margin-left: 10px;
+  margin-bottom: 0;
+  color: #D2AA6B;
+  text-decoration: none;
+  font-size: 28px;
 }
 
 /*         FIN DE NAVBAR                */
@@ -77,16 +87,14 @@ nav a {
   letter-spacing: 5px;
 }
 
-.searchName{
+.searchName {
   height: 2rem;
 }
+
 
 .btn1 {
   background-color: #D2AA6B;
 }
-
-/* CARDS */
-
 /* DIV DE LAS CASAS EN INDEX */
 .contCasas {
   display: flex;
@@ -131,7 +139,9 @@ nav a {
   background-color: #D2AA6B;
 }
 
-
+.h1detail{
+  font-size: 6vw;
+}
 .menu {
   margin-top: 1%;
   width: 50%;
@@ -142,23 +152,80 @@ nav a {
   height: 34vh;
 }
 
-.carddetails {
-  width: 190px;
-  height: 254px;
+
+/* tarjetas details */
+.tarjetaDetails a {
+  text-decoration: none;
+  font-family: "Cormorant Garamond", serif;
+  color: #FFF;
+  font-size: 30px;
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+.tarjetaDetails {
+  max-width: 10vw;
+  height: 30vh;
+  background-color: #FFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  margin: 10px auto;
+  cursor: pointer;
   border-radius: 30px;
-  background: #212121;
 }
 
-.card img{
+
+.card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+.tarjetaDetails img {
+  transition: all linear 0.25s;
+}
+
+.tarjetaDetails .profile-name {
+  position: absolute;
+  left: 30px;
+  bottom: 70px;
+  transition: all linear 0.25s;
+}
+
+
+.tarjetaDetails .profile-username {
+  position: absolute;
+  bottom: 50px;
+  left: 30px;
+  color: #FFF;
+  font-size: 13px;
+  transition: all linear 0.25s;
+}
+
+.tarjetaDetails .profile-icons .fa {
+  margin: 5px;
+}
+
+.tarjetaDetails:hover img {
+  filter: grayscale(100%);
+}
+
+.tarjetaDetails:hover .profile-name {
+  bottom: 80px;
+}
+
+.tarjetaDetails:hover .profile-username {
+  bottom: 60px;
+}
+
+
+
+/* tarjetas details finish */
 .text-shadows {
-  text-shadow: 0px 0px 9px rgba(0, 0, 0, 1);
-  -webkit-text-stroke: 0.8px black;
-  color: transparent;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 1.5);
+  -webkit-text-stroke: 0.3px black;
+  /* color: transparent; */
 }
 
 .color {
@@ -166,12 +233,16 @@ nav a {
 }
 
 .bg-card {
-  background-color: #D2AA6B;
+  background-color: rgb(210, 170, 107);
   box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 1.5);
 }
 
-.card{
+.card {
   border: none;
+}
+
+.modal-content {
+  box-shadow: inset 0px 0px 10px rgba(210, 170, 107, 1.5);
 }
 
 .favoritePopover {
@@ -179,7 +250,7 @@ nav a {
   height: 15%;
 }
 
-.favoritePopover img {
+.favoriteImg {
   min-width: 40%;
   max-width: 50%;
 }
@@ -196,16 +267,18 @@ nav a {
 }
 
 .minh {
-  min-height: 70vh;
-
+  min-height: 58vh;
 }
 
 .minh form {
   max-height: 4vh;
 }
+
+
 .minhead{
   min-height: 7rem;
  width: 97vw;
+
 }
 
 .package {
@@ -249,7 +322,8 @@ h1 {
 
 .houseCard {
   width: 60%;
-  display: flex;}
+  display: flex;
+}
 
 .studentImg {
   border-radius: 20px;
@@ -263,7 +337,8 @@ footer {
   height: 7vh;
   background-color: black;
 }
-.imgPatronus{
+
+.imgPatronus {
   height: 25vw;
 }
 
@@ -323,7 +398,7 @@ footer {
   position: relative;
 }
 
-.checkbox-wrapper-12 > svg {
+.checkbox-wrapper-12>svg {
   position: absolute;
   top: -130%;
   left: -170%;
@@ -396,11 +471,11 @@ footer {
   transition-delay: 0.2s;
 }
 
-.checkbox-wrapper-12 .cbx input:checked + label {
+.checkbox-wrapper-12 .cbx input:checked+label {
   animation: splash-12 0.6s ease forwards;
 }
 
-.checkbox-wrapper-12 .cbx input:checked + label + svg path {
+.checkbox-wrapper-12 .cbx input:checked+label+svg path {
   stroke-dashoffset: 0;
 }
 

@@ -1,4 +1,3 @@
-
 let url = "https://potterhead-api.vercel.app/api/characters";
 
 document.querySelectorAll('.cardcasa').forEach(card => {
@@ -7,38 +6,40 @@ document.querySelectorAll('.cardcasa').forEach(card => {
         window.location.href = `/page/detailsHouses.html?houseId=${houseId}`;
     });
 });
-function getQueryParam(param) {
+
+function newID(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
-const houseId = getQueryParam('houseId');
+const houseId = newID('houseId');
 
 function HouseDetails(houseId) {
     fetch(url)
         .then(response => response.json())
         .then(data => {
             const characterList = document.getElementById('characterList');
+            const houseNameElement = document.getElementById('houseName');
             const filteredCharacters = data.filter(character => character.house === houseId);
 
-            
             if (filteredCharacters.length > 0) {
+                houseNameElement.textContent = houseId;
+
                 filteredCharacters.forEach(student => {
+                    const studentImage = student.image || '/img/undefinedStudent.png';
                     const characterCard = document.createElement('div');
                     characterCard.innerHTML = `
-                        <div class="carddetails p-2 m-3">
-                        <a href="/page/details.html?value=${student.id}"> 
-                        <img class="studentImg w-100 object-fit-cover" src="${student.image}"  alt="${student.name}">
-                        </a>   
-                        </div>
+                    <div class="tarjetaDetails m-3"><a href="/page/details.html?id=${student.id}">
+                    <img src="${studentImage}" class="img w-100 h-100 object-fit-cover">
+                    <div class="profile-name"> ${student.name}</a></div>
+                     </div>
                     `;
                     characterList.appendChild(characterCard);
                 });
             } else {
-                characterList.innerHTML = '<p>No characters found for this house.</p>';
+                console.log("se rompió");
             }
-        })
+        });
 }
-
 
 HouseDetails(houseId);
