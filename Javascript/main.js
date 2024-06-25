@@ -1,32 +1,44 @@
 
-let charactersApiUrl = "https://potterhead-api.vercel.app/api/characters";
+let url = "https://potterhead-api.vercel.app/api/characters";
 
-let characters = [];
+document.querySelectorAll('.cardcasa').forEach(card => {
+    card.addEventListener('click', () => {
+        const houseId = card.id;
+        window.location.href = `/page/detailsHouses.html?houseId=${houseId}`;
+    });
+});
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
 
-function obtenerPersonajes() {
-    fetch(charactersApiUrl)
+const houseId = getQueryParam('houseId');
+
+function HouseDetails(houseId) {
+    fetch(url)
         .then(response => response.json())
         .then(data => {
-            characters = data;
-            let gryffindorCharacters = characters.filter(character => character.house === "Gryffindor");
-            mostrarPersonajes(gryffindorCharacters);
+            const characterList = document.getElementById('characterList');
+            const filteredCharacters = data.filter(character => character.house === houseId);
+
+            
+            if (filteredCharacters.length > 0) {
+                filteredCharacters.forEach(student => {
+                    const characterCard = document.createElement('div');
+                    characterCard.innerHTML = `
+                        <div class="carddetails p-2 m-3">
+                        <a href="/page/details.html?value=${student.id}"> 
+                        <img class="studentImg w-100 object-fit-cover" src="${student.image}"  alt="${student.name}">
+                        </a>   
+                        </div>
+                    `;
+                    characterList.appendChild(characterCard);
+                });
+            } else {
+                characterList.innerHTML = '<p>No characters found for this house.</p>';
+            }
         })
 }
 
-function mostrarPersonajes(personajes) {
-    let cardContainer = document.getElementById('card');
-    cardContainer.innerHTML = ''; 
-    personajes.forEach(personaje => {
-        let cardContenedor = `
-            <div class="card">
-                <a href="/index.html"> <img class="img2" src="${personaje.image}" style="width: 200px" alt="${personaje.name}"></a>
-                <div class="texto3">
-                    <h4>${personaje.name}</h4>
-                </div>
-            </div>
-        `;
-        cardContainer.innerHTML += cardContenedor;
-    });
-}
 
-obtenerPersonajes();
+HouseDetails(houseId);
