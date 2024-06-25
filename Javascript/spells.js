@@ -36,7 +36,7 @@ const aplicationSpell = createApp({
             let sorts = this.selectSort
 
             if (sorts === "namefall") {
-                let nameDesc = this.spell.sort((a, b) => b.attributes.name.localeCompare(a.attributes.category))
+                let nameDesc = this.spell.sort((a, b) => b.attributes.name.localeCompare(a.attributes.name))
                 this.spell = nameDesc
             }
 
