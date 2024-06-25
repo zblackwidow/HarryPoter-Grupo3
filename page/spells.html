@@ -69,22 +69,18 @@
                 <h1 class="display-4">SPELLS OF HOGWARTS</h1>
             </div>
         </div>
-        <div class="d-flex justify-content-center row w-100 mt-3 mb-2">
+        <div class="d-flex justify-content-center row w-100 mt-3 mb-4">
             {{filter}}
             <div class="col-md col-6">
                 <select v-model="selectSort" class="form-select border-warning titleSpells bg-black ms-1 mt-2"
                     aria-label="Large select example">
                     <option value="">Sort By</option>
-                    <option value="name">Name</option>
-                    <option value="category">Category</option>
-                </select>
-            </div>
-            <div class="col-md col-6">
-                <select v-model="selectOrder" class="form-select mt-2 border-warning titleSpells bg-black"
-                    aria-label="Large select example">
-                    <option value="">Order↑↓</option>
-                    <option value="upward">Upward</option>
-                    <option value="falling">Falling</option>
+                    <option value="nameup">Name Upward</option>
+                    <option value="namefall">Name Falling</option>
+                    <option value="categoryup">Category Upward</option>
+                    <option value="categoryfall">Category Falling</option>
+                    <option value="effectup">Effect Upward</option>
+                    <option value="effectfall">Effect Falling</option>
                 </select>
             </div>
             <div class="col-md col-6">
@@ -101,17 +97,17 @@
                 </form>
             </div>
         </div>
-        <div class="d-flex w-100 main-stats justify-content-center mb-3 row h-100 align-items-center">
-            <table id="table" class="table-bordered border-info-subtle titleSpells col-sm-10 col mx-auto py-auto">
+        <div class="d-flex w-100 main-stats justify-content-center mb-3 h-100 row">
+            <table id="table" class="w-75 table-bordered border-info-subtle titleSpells col-sm-10 col mx-auto py-auto">
                 <thead class="h4">
-                    <tr class="text-center bg-black text-white px-auto py-auto">
+                    <tr class="text-center bg-black  px-auto py-auto">
                         <th class="p-2">Name</th>
                         <th class="p-2">Effect</th>
                         <th class="p-2">Category</th>
                     </tr>
                 </thead>
                 <tbody class="h5">
-                    <tr v-for="spells in spell" class="py-auto px-auto">
+                    <tr v-for="spells in spell" class="text-white py-auto px-auto">
                         <td class="p-2">🪄{{spells.attributes.name}}</td>
                         <td class="p-2">{{spells.attributes.effect}}</td>
                         <td class="p-2">{{spells.attributes.category}}</td>
