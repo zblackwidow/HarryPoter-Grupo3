@@ -1,6 +1,6 @@
 let contenDetails = document.getElementById("details")
 let idDetails = window.location.href
-idDetails = new URL(idDetails).searchParams.get("value")
+idDetails = new URL(idDetails).searchParams.get("id")
 
 const urlData = "https://potterhead-api.vercel.app/api/characters"
 
