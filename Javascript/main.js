@@ -31,6 +31,7 @@ function HouseDetails(houseId) {
                     characterCard.innerHTML = `
                         <div class="carddetails p-2 m-3">
                         <a href="/page/details.html?value=${student.id}"> 
+                        <h5 class="card-title">${student.name}</h5>
                         <img class="studentImg w-100 h-100 object-fit-cover" src="${studentImage}" alt="${student.name}">
                         </a>   
                         </div>
