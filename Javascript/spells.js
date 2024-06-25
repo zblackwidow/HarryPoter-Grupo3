@@ -9,7 +9,6 @@ const aplicationSpell = createApp({
             spell: [],
             category: [],
             search: "",
-            selectOrder: ``,
             selectSort: ``,
             spellBk: [],
             categorySelect: ``,
@@ -39,26 +38,33 @@ const aplicationSpell = createApp({
             }
 
             let sorts = this.selectSort
-            let orders = this.selectOrder
 
-            if (sorts === "name" && orders === "falling") {
+            if (sorts === "namefall") {
                 let nameDesc = this.spell.sort((a, b) => b.attributes.name.localeCompare(a.attributes.category))
                 this.spell = nameDesc
             }
 
-            if (sorts === "name" && orders === "upward") {
+            if (sorts === "nameup") {
                 let nameAsce = this.spell.sort((a, b) => a.attributes.name.localeCompare(b.attributes.name))
                 this.spell = nameAsce
             }
 
-            if (sorts === "category" && orders === "upward") {
+            if (sorts === "categoryup") {
                 let categoryAsc = this.spell.sort((a, b) => a.attributes.category.localeCompare(b.attributes.category))
                 this.spell = categoryAsc
             }
 
-            if (sorts === "category" && orders === "falling") {
+            if (sorts === "categoryfall") {
                 let categoryDes = this.spell.sort((a, b) => b.attributes.category.localeCompare(a.attributes.category))
                 this.spell = categoryDes
+            }
+            if (sorts === "effectup") {
+                let effectUp = this.spell.sort((a, b) => a.attributes.effect.localeCompare(b.attributes.category))
+                this.spell = effectUp
+            }
+            if (sorts === "effectfall") {
+                let effectFall = this.spell.sort((a, b) => b.attributes.effect.localeCompare(a.attributes.category))
+                this.spell = effectFall
             }
         }
     }

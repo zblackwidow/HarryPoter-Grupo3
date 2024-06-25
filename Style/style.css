@@ -1,4 +1,4 @@
-* {
+*{
   margin: 0;
   box-sizing: border-box;
   padding: 0;
@@ -84,6 +84,8 @@ nav a {
 .btn1 {
   background-color: #D2AA6B;
 }
+
+/* CARDS */
 
 /* DIV DE LAS CASAS EN INDEX */
 .contCasas {
@@ -202,7 +204,8 @@ nav a {
   max-height: 4vh;
 }
 .minhead{
-  min-height: 6rem;
+  min-height: 7rem;
+ width: 97vw;
 }
 
 .package {
