@@ -248,13 +248,6 @@ h1 {
   width: 60%;
   display: flex;
 
-
-/* BACKGROUND BODY */
-body {
-  height: 100vh;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(180deg, rgba(0, 0, 0, 1) 5%, rgba(99, 88, 157, 1) 31%, rgba(75, 67, 122, 1) 54%, rgba(0, 0, 0, 1) 66%);
-}
 .studentImg {
   border-radius: 20px;
 }
