@@ -247,7 +247,9 @@ h1 {
 .houseCard {
   width: 60%;
   display: flex;
-
+}
+.studentImg {
+  border-radius: 20px;
 }
 
 /* FOOTER */
