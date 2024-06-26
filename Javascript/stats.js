@@ -89,28 +89,37 @@ fetch (enlaceData)
      // Iterar sobre el máximo número de filas (10 en este caso)
      for (let i = 0; i < 10; i++) {
        // Crear una nueva fila
-       let tablaEdades = document.createElement("tr");
-       tablaEdades.classList.add("text-center");
- 
-       // Agregar las celdas para las personas más jóvenes y más viejas
-       let celdaJoven = document.createElement("td");
-       if (masJovenes[i]) {
-         celdaJoven.textContent = `${masJovenes[i].name}, ${masJovenes[i].edad} años`;
-       } else {
-         celdaJoven.textContent = ''; // Si no hay personaje, dejar la celda vacía
-       }
- 
-       let celdaViejo = document.createElement("td");
-       if (masViejos[i]) {
-         celdaViejo.textContent = `${masViejos[i].name}, ${masViejos[i].edad} años`;
-       } else {
-         celdaViejo.textContent = ''; // Si no hay personaje, dejar la celda vacía
-       }
- 
-       // Agregar las celdas a la fila
+        let tablaEdades = document.createElement("tr");
        
-       tablaEdades.appendChild(celdaViejo);
-       tablaEdades.appendChild(celdaJoven);
+ 
+ 
+       
+       let celdaNombreJoven = document.createElement("td");
+      let celdaEdadJoven = document.createElement("td");
+      let celdaNombreViejo = document.createElement("td");
+      let celdaEdadViejo = document.createElement("td");
+
+      if (masJovenes[i]) {
+        celdaNombreJoven.textContent = masJovenes[i].name;
+        celdaEdadJoven.textContent = masJovenes[i].edad;
+      } else {
+        celdaNombreJoven.textContent = '';
+        celdaEdadJoven.textContent = '';
+      }
+
+      if (masViejos[i]) {
+        celdaNombreViejo.textContent = masViejos[i].name;
+        celdaEdadViejo.textContent = masViejos[i].edad;
+      } else {
+        celdaNombreViejo.textContent = '';
+        celdaEdadViejo.textContent = '';
+      }
+
+      // Agregar las celdas a la fila
+      tablaEdades.appendChild(celdaNombreJoven);
+      tablaEdades.appendChild(celdaEdadJoven);
+      tablaEdades.appendChild(celdaNombreViejo);
+      tablaEdades.appendChild(celdaEdadViejo);
  
        // Agregar la fila al cuerpo de la tabla
        ContenedorEdad.appendChild(tablaEdades);
@@ -120,4 +129,3 @@ fetch (enlaceData)
 
 
   });
-

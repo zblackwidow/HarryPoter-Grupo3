@@ -25,71 +25,84 @@
 
 <body>
     <header>
-        <nav class="navbar sticky-top bg-body-tertiary flex-direction:between">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <div><img class="navbar-brand" href="#" src="../img/logo.png" alt="Logo" width="50" height="50"
-                        class="d-inline-block align-text-top">
-                    <a href="#">Hogwarts House</a>
+                <a class="navbar-brand" href="index.html">
+                    <img src=" /img/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
+                    <p>Hogwarts House</p>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link " href="../index.html">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./spells.html">SPELLS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./staff.html">STAFF</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./students.html">STUDENTS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./stats.html">STATISTICS</a>
+                        </li>
+                    </ul>
                 </div>
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./spells.html">SPELLS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./staff.html">STAFF</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./students.html">STUDENTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">STATISTICS</a>
-                    </li>
-                </ul>
             </div>
         </nav>
+        
     </header>
     <main>
         
 
         <!-- Tabla -->         
           
-        <div class="container ">
-            <div class="row w-75 align-items-center bg-white">
+        <div class="d-flex justify-content-center row w-100 mt-3 mb-4">
+            <div  class="row w-50  align-items-center bg-black bg-opacity-50 mb-5 table-bordered border-primary-subtle">
                 <table>
                 <thead>
                     <tr>
-                    <th class="fs-4 bg-dark text-center text-white" colspan="4">Distribución de la Población por Casas en Hogwarts</th>
+                    <th class="fs-2 titleSpells text-center" colspan="4">Population Distribution by Houses at Hogwarts</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <td class="fw-bold fst-italic text-center">Gryffindor</td>
-                    <td class="fw-bold fst-italic text-center">Hufflepuff</td>
-                    <td class="fw-bold fst-italic text-center">Ravenclaw</td>
-                    <td class="fw-bold fst-italic text-center">Slytherin</td>
+                    <tr class="fs-4 text-white">
+                        <th class="fs-4 fw-bold fst-italic text-center">Ravenclaw</th>
+                        <th class="fw-bold fst-italic text-center ">Gryffindor</th>
+                        <th class="fw-bold fst-italic text-center ">Hufflepuff</th>                        
+                        <th class="fw-bold fst-italic text-center ">Slytherin</th>
                     </tr>
                     <tr>
-                    <td id="Gryffindor" class="text-center fs-6"></td>
-                    <td id="Hufflepuff" class="text-center fs-6"></td>
-                    <td id="Ravenclaw" class="text-center fs-6"></td>
-                    <td id="Slytherin" class="text-center fs-6"></td>
+                        <td colspan="4">
+                            <img src="/img/houses-hogwarts.webp" style="width: 100%;" alt="houses-hogwarts" >
+                        </td>
+
+                    </tr>
+                    <tr class="fs-4 text-white ">
+                        <td id="Ravenclaw" class="text-center  " ></td>
+                        <td id="Gryffindor" class="text-center  "></td>
+                        <td id="Hufflepuff" class="text-center  "></td>
+                        <td id="Slytherin" class="text-center   "></td>
                     </tr>
                     
                 </table>
                 <table>
                 <thead>
                     <tr>
-                        <th class="fs-4 bg-dark text-center text-white" colspan="3">Top Edades</th>
+                        <th class="fs-2  text-center titleSpells" colspan="4">Top Ages</th>
                     </tr>
-                    <tr>
-                        <td class="fw-bold fst-italic text-center">Los mas Viejos</td>
-                        <td class="fw-bold fst-italic text-center">Los mas  Jóvenes</td>
+                    <tr class="fs-4 titleSpells">
+                        <td class="fw-bold fst-italic text-center " colspan="2">The Youngest</td>
+                        <td class="fw-bold fst-italic text-center " colspan="2">The oldest </td>
                     </tr>
                 </thead>
-                <tbody id="topEdades">
+                <tbody id="topEdades" class="text-white fs-5">
                     
                     
                 </tbody>
@@ -97,19 +110,19 @@
                 <table>
                 <thead>
                     <tr>
-                    <th class="fs-4 bg-dark text-center text-white" colspan="3">Estadística por Sexo</th>
+                        <th class="fs-2  text-center titleSpells" colspan="4">Statistics by Sex</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="fw-bold fst-italic text-center">Hombres</td>
-                        <td class="fw-bold fst-italic text-center">Mujeres</td>
-                        <td class="fw-bold fst-italic text-center">Otras Especies</td>
+                    <tr class="fs-4 titleSpells">
+                        <td class="fw-bold fst-italic text-center ">Men</td>
+                        <td class="fw-bold fst-italic text-center ">Women</td>
+                        <td class="fw-bold fst-italic text-center ">Other species</td>
                     </tr>
                     <tr>
-                        <td id="hombres" class="text-center fs-6"></td>
-                        <td id="mujeres" class="text-center fs-6"></td>
-                        <td id="otrasEspecies" class="text-center fs-6"></td>
+                        <td id="hombres" class="text-center fs-4 text-white"></td>
+                        <td id="mujeres" class="text-center fs-4 text-white"></td>
+                        <td id="otrasEspecies" class="text-center fs-4 text-white"></td>
                     </tr>
                 </tbody>
                 </table>
