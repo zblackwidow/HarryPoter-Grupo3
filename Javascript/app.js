@@ -33,6 +33,15 @@ const app = createApp({
                     if (!dato.house || dato.house.trim() === "") {
                         dato.house = "Homeless"
                     }
+                    if (!dato.patronus || dato.patronus.trim() === "") {
+                        dato.patronus = "Does not have"
+                    }
+                    if (!dato.eyeColour || dato.eyeColour.trim() === "") {
+                        dato.eyeColour = "No data"
+                    }
+                    if (!dato.dateOfBirth || dato.dateOfBirth.trim() === "") {
+                        dato.dateOfBirth = "No data"
+                    }
                 });
                 this.students = this.allData.filter(data => data.hogwartsStudent == true)
                 this.studentsBk = this.allData.filter(data => data.hogwartsStudent == true)

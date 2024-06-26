@@ -55,15 +55,15 @@
         </nav>
     </header>
     <main id="app">
-        <div class="d-flex justify-content-around align-items-center">
-            <div class="card my-5 d-flex justify-content-around" id="details">
+        <div class="d-flex justify-content-around align-items-center px-3">
+            <div class="card my-5 d-flex justify-content-around h-50 w-75">
                 <div v-for="dato in details" class="row g-0">
                     <div class="col-md-8">
-                        <img :src="dato.image" class="img-fluid" :alt="dato.name">
+                        <img :src="dato.image" class="img-fluid" :alt="dato.name" onerror="this.src='https://e1.pxfuel.com/desktop-wallpaper/747/257/desktop-wallpaper-hogwarts-logo-hogwarts-crest.jpg'">
                     </div>
                     <div class="col-md-4 d-flex">
                         <div class="card-body d-flex flex-column justify-content-around">
-                            <h3 class="card-title fw-bold">{{dato.name}}</h3>
+                            <h3 class="card-title text-center fw-bold">{{dato.name}}</h3>
                             <p class="fw-bold fs-5">Birth: {{dato.dateOfBirth}}</p>
                             <p class="fw-bold fs-5">Eye colour: {{dato.eyeColour}}</p>
                             <p class="fw-bold fs-5">Gender: {{dato.gender}}</p>
