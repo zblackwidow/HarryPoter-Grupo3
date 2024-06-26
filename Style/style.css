@@ -256,13 +256,13 @@ nav a {
 }
 
 .favoritePopover {
-  width: 15%;
-  height: 15%;
+  width: 30%;
+  height: 30%;
 }
 
 .favoriteImg {
-  min-width: 40%;
-  max-width: 50%;
+  min-width: 3rem;
+  max-width: 3rem;
 }
 
 
