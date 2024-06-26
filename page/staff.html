@@ -103,7 +103,7 @@
             <div class="container-fluid row justify-content-center minh">
                 <h1 class="text-center color h-0">Staff</h1>
                 {{filterHouse}}
-                <div class="container-fluid row px-1 pb-3 pt-0 justify-content-around w-100">
+                <div class="container-fluid row px-1 py-3 justify-content-around w-100">
                     <div class="container-fluid d-flex row col-12 col-md-10 col-lg-7 justify-content-center w-auto m-1">
                         <div v-for="house in house" class="form-check col-3 col-md-1 px-4 w-auto">
                             <div class="checkbox-wrapper-12">
@@ -133,7 +133,6 @@
                             </div>
                         </div>
                     </div>
-
                     <form class="d-flex col-10 col-md-5 col-lg-2 justify-content-end w-auto" role="search">
                         <input v-model="search" id="search" class="form-control me-2" type="search" placeholder="Search"
                             aria-label="Search">
