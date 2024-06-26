@@ -1,23 +1,7 @@
-const urlApi = "https://potterhead-api.vercel.app/api"
-//console.log(urlApi);
-const urlAllCharacters = urlApi + "/characters"
-//console.log(urlAllCharacters);
-/*const urlAllStudents = urlAllCharacters+"/students"
-console.log(urlAllStudents);
-const urlAllStaff = urlAllCharacters+"/staff"
-console.log(urlAllStaff);
-const urlHouse = urlAllCharacters+"/house"
-console.log(urlHouse);
-const urlHouseGryffindor = urlHouse+"/gryffindor"
-console.log(urlHouseGryffindor);
-const urlHouseSlytherin = urlHouse+"/slytherin"
-console.log(urlHouseSlytherin);
-const urlHouseHufflepuff = urlHouse+"/hufflepuff"
-console.log(urlHouseHufflepuff);
-const urlHouseRavenclaw = urlHouse+"/ravenclaw"
-console.log(urlHouseRavenclaw);*/
-
+const urlApi = "https://potterhead-api.vercel.app/api/characters"
+let idDetails = new URL(window.location.href).searchParams.get("id")
 let urlHouse = new URL(window.location.href).searchParams.get("id");
+
 const { createApp } = Vue
 
 const app = createApp({
@@ -33,17 +17,17 @@ const app = createApp({
             search: "",
             checkboxCheck: [],
             studentsFavorite: JSON.parse(localStorage.getItem('studentsFavorite')) || [],
-            staffFavorite: JSON.parse(localStorage.getItem('staffFavorite')) || []
+            staffFavorite: JSON.parse(localStorage.getItem('staffFavorite')) || [],
+            details: []
         }
 
     },
     created() {
-        this.apiData(urlAllCharacters)
+        this.apiData(urlApi)
     },
     methods: {
         apiData(url) {
             fetch(url).then(response => response.json()).then(data => {
-                console.log(data);
                 this.allData = data
                 this.allData.forEach(dato => {
                     if (!dato.house || dato.house.trim() === "") {
@@ -56,6 +40,7 @@ const app = createApp({
                 this.staffBk = this.allData.filter(data => data.hogwartsStaff == true)
                 this.house = [...new Set(this.allData.map((data) => data.house))]
                 this.studentsHouse = this.studentsBk.filter(data => data.house == urlHouse);
+                this.details = this.allData.filter(dato => dato.id == idDetails);
             });
         },
         addFavorite(dato) {
