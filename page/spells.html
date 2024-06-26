@@ -25,32 +25,35 @@
 
 
     <header class="minhead">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-md navbar-light row">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
                     <img src="../img/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
                     <p>Hogwarts House</p>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                <div class="col-2">
+                    <button class="navbar-toggler btn1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                </div>
+                
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link " href="../index.html">HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="spells.html">SPELLS</a>
+                            <a class="nav-link" href="#">SPELLS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="staff.html">STAFF</a>
+                            <a class="nav-link" href="./staff.html">STAFF</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="students.html">STUDENTS</a>
+                            <a class="nav-link" href="./students.html">STUDENTS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="stats.html">STATISTICS</a>
+                            <a class="nav-link" href="./stats.html">STATISTICS</a>
 
                         </li>
                     </ul>
@@ -95,32 +98,30 @@
             </div>
         </div>
        
-            <table id="table" class="table-bordered border-info-subtle titleSpells caption-top container">
-                <thead class="h4">
-                    <tr class="text-center bg-black  px-auto py-auto">
-                        <th class="p-2" scope="col">Name</th>
-                        <th class="p-2" scope="col">Effect</th>
-                        <th class="p-2" scope="col">Category</th>
+            <table id="table" class="table-bordered border-info-subtle titleSpells container-fluid w-75">
+                <thead >
+                    <tr class="text-center bg-black ">
+                        <th class="py-2">Name</th>
+                        <th class="py-2">Effect</th>
+                        <th class="py-2">Category</th>
                     </tr>
                 </thead>
-                <tbody class="h5">
-                    <tr v-for="spells in spell" class="text-white py-auto px-auto">
-                        <th class="p-2" scope="row">🪄{{spells.attributes.name}}</th>
-                        <td class="p-2">{{spells.attributes.effect}}</td>
-                        <td class="p-2">{{spells.attributes.category}}</td>
+                <tbody>
+                    <tr v-for="spells in spell" class="text-white">
+                        <th class="py-2">🧙‍♂️{{spells.attributes.name}}</th>
+                        <td class="py-2">{{spells.attributes.effect}}</td>
+                        <td class="py-2">{{spells.attributes.category}}</td>
                     </tr>
                 </tbody>
-                <tfoot class="h5">
-                    <tr v-if="spell.length ===  0" class=" text-center px-auto">
-                        <th colspan="3" scope="row">.·´¯`(>▂<)´¯`·. </th>
+                <tfoot>
+                    <tr v-if="spell.length ===  0" class=" text-center ">
+                        <th colspan="3">.·´¯`(>▂<)´¯`·. </th>
                     </tr>
                     <tr v-if="spell.length ===  0" class="text-center">
                         <td colspan="3">🧙‍♂️🧙‍♂️No results found🧙‍♂️🧙‍♂️</td>
                     </tr>
                 </tfoot>
             </table>
-    
-            
     </main>
     <footer>
          <!-- Alejandra -->
