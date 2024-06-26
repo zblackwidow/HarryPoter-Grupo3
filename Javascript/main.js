@@ -1,3 +1,36 @@
+// const { createApp } = Vue;
+// NO FUNCIONO
+// const app = createApp({
+//     data() {
+//         return {
+//             url: "https://potterhead-api.vercel.app/api/characters",
+//             houseId: new URL(window.location.href).searchParams.get("houseId"),
+//             characters: [],
+//             houseName: ''
+//         }
+//     },
+//     created() {
+//         this.fetchHouseDetails();
+//     },
+//     methods: { 
+//         fetchHouseDetails() {
+//             fetch(this.url)
+//                 .then(response => response.json())
+//                 .then(data => {
+//                     const filteredCharacters = data.filter(character => character.house === this.houseId);
+//                     if (filteredCharacters.length > 0) {
+//                         this.houseName = this.houseId;
+//                         this.characters = filteredCharacters;
+//                     } else {
+//                         console.log("No characters found for this house.");
+//                     }
+//                 });
+//         }
+//     }
+// });
+
+// app.mount('#app');
+
 let url = "https://potterhead-api.vercel.app/api/characters";
 
 document.querySelectorAll('.cardcasa').forEach(card => {
