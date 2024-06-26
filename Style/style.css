@@ -494,6 +494,9 @@ footer {
     margin: 3%;
     width: 100%;
   }
+  .tarjetaDetails{
+    max-width: 100%;
+  }
 }
 
 @-moz-keyframes splash-12 {
