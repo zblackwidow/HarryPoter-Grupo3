@@ -478,6 +478,32 @@ footer {
 .checkbox-wrapper-12 .cbx input:checked+label+svg path {
   stroke-dashoffset: 0;
 }
+@media only screen and (max-width: 685px) {
+  .cardcasa{
+    width: 100%;
+    height: 10%;
+  }
+ .imgcasas{
+  width: 60%;
+ }
+  .houses{
+    margin: 2%;
+  }
+  .contCasas{
+    flex-direction: column;
+    height: 50%;
+  }
+  .menu{
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height:1%;
+  }
+  .package {
+    margin: 3%;
+    width: 100%;
+  }
+}
 
 @-moz-keyframes splash-12 {
   40% {
