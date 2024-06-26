@@ -63,72 +63,73 @@
 
         <!-- Tabla -->         
           
-        <div class="d-flex justify-content-center row w-100 mt-3 mb-4">
-            <div  class="row w-75  align-items-center bg-black bg-opacity-50 mb-5 table-bordered border-primary-subtle">
-                <table>
-                <thead>
-                    <tr>
-                    <th class="fs-2 titleSpells text-center" colspan="4">Population Distribution by Houses at Hogwarts</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="fs-4 text-white">
-                        <th class="fs-4 fw-bold fst-italic text-center">Ravenclaw</th>
-                        <th class="fw-bold fst-italic text-center ">Gryffindor</th>
-                        <th class="fw-bold fst-italic text-center ">Hufflepuff</th>                        
-                        <th class="fw-bold fst-italic text-center ">Slytherin</th>
-                    </tr>
-                    <tr>
-                        <td colspan="4">
-                            <img src="/img/houses-hogwarts.webp" style="width: 100%;" alt="houses-hogwarts" >
-                        </td>
+        <div class="d-flex column justify-content-center mt-3 mb-4 w-100 ">
+            
+                <table class="w-50 table-bordered border-primary-subtle bg-black bg-opacity-50  ">
+                    <thead>
+                        <tr>
+                            <th class="fs-2 titleSpells text-center " colspan="4">Population Distribution by Houses at Hogwarts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="fs-4 text-white ">
+                            <th class="fw-bold fst-italic text-center">Ravenclaw</th>
+                            <th class="fw-bold fst-italic text-center ">Gryffindor</th>
+                            <th class="fw-bold fst-italic text-center ">Hufflepuff</th>                        
+                            <th class="fw-bold fst-italic text-center ">Slytherin</th>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <img src="/img/houses-hogwarts.webp"  alt="houses-hogwarts" id="imagenStats" style="width: 100%;">
+                            </td>
 
-                    </tr>
-                    <tr class="fs-4 text-white ">
-                        <td id="Ravenclaw" class="text-center  " ></td>
-                        <td id="Gryffindor" class="text-center  "></td>
-                        <td id="Hufflepuff" class="text-center  "></td>
-                        <td id="Slytherin" class="text-center   "></td>
-                    </tr>
-                    
+                        </tr>
+                        <tr class="fs-4 text-white ">
+                            <td id="Ravenclaw" class="text-center " ></td>
+                            <td id="Gryffindor" class="text-center"></td>
+                            <td id="Hufflepuff" class="text-center"></td>
+                            <td id="Slytherin" class="text-center"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="4">
+                                <table class="nested-table w-100 table-bordered ">
+                                    <thead>
+                                        <tr>
+                                            <th class="fs-2 text-center titleSpells" colspan="4">Top Ages</th>
+                                        </tr>
+                                        <tr class="fs-4 titleSpells">
+                                            <td class="fw-bold fst-italic text-center " colspan="2">The Youngest</td>
+                                            <td class="fw-bold fst-italic text-center " colspan="2">The oldest </td>
+                                        </tr>
+                                    </thead>
+                                    
+                                    
+    
+                                    <tbody id="topEdades" class="text-white fs-5 ">
+                                        
+                                    </tbody>
+                                </table>
+                            </td>
+                            
+                         </tr>
+                        <tr>
+                            <th class="fs-2  text-center titleSpells" colspan="4">Statistics by Sex</th>
+                        </tr>
+                        <tr class="fs-4 titleSpells">
+                            <td class="fw-bold fst-italic text-center ">Men</td>
+                            <td class="fw-bold fst-italic text-center ">Women</td>
+                            <td class="fw-bold fst-italic text-center " colspan="2">Other species</td>
+                        </tr>
+                        <tr>
+                            <td id="hombres" class="text-center fs-4 text-white"></td>
+                            <td id="mujeres" class="text-center fs-4 text-white"></td>
+                            <td id="otrasEspecies" class="text-center fs-4 text-white" colspan="2"></td>
+                        </tr>
+                    </tbody>
                 </table>
-                <table>
-                <thead>
-                    <tr>
-                        <th class="fs-2  text-center titleSpells" colspan="4">Top Ages</th>
-                    </tr>
-                    <tr class="fs-4 titleSpells">
-                        <td class="fw-bold fst-italic text-center " colspan="2">The Youngest</td>
-                        <td class="fw-bold fst-italic text-center " colspan="2">The oldest </td>
-                    </tr>
-                </thead>
-                <tbody id="topEdades" class="text-white fs-5">
-                    
-                    
-                </tbody>
-                </table>
-                <table>
-                <thead>
-                    <tr>
-                        <th class="fs-2  text-center titleSpells" colspan="4">Statistics by Sex</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="fs-4 titleSpells">
-                        <td class="fw-bold fst-italic text-center ">Men</td>
-                        <td class="fw-bold fst-italic text-center ">Women</td>
-                        <td class="fw-bold fst-italic text-center ">Other species</td>
-                    </tr>
-                    <tr>
-                        <td id="hombres" class="text-center fs-4 text-white"></td>
-                        <td id="mujeres" class="text-center fs-4 text-white"></td>
-                        <td id="otrasEspecies" class="text-center fs-4 text-white"></td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
-
-            </div>
+            
+        </div>
 
         
         
