@@ -90,19 +90,23 @@ fetch (enlaceData)
      for (let i = 0; i < 10; i++) {
        // Crear una nueva fila
        let tablaEdades = document.createElement("tr");
-       tablaEdades.classList.add("text-center");
+       
  
        // Agregar las celdas para las personas más jóvenes y más viejas
        let celdaJoven = document.createElement("td");
        if (masJovenes[i]) {
-         celdaJoven.textContent = `${masJovenes[i].name}, ${masJovenes[i].edad} años`;
+         celdaJoven.textContent = `${masJovenes[i].name} ${masJovenes[i].edad} años`;
        } else {
          celdaJoven.textContent = ''; // Si no hay personaje, dejar la celda vacía
        }
  
        let celdaViejo = document.createElement("td");
+       
        if (masViejos[i]) {
-         celdaViejo.textContent = `${masViejos[i].name}, ${masViejos[i].edad} años`;
+         celdaViejo.textContent = `${masViejos[i].name} 
+         
+         ${masViejos[i].edad} años`;
+         
        } else {
          celdaViejo.textContent = ''; // Si no hay personaje, dejar la celda vacía
        }
@@ -120,4 +124,3 @@ fetch (enlaceData)
 
 
   });
-
