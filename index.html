@@ -56,11 +56,12 @@
         </nav>
 
     </header>
-    <main class="mainIndex">
+    <main id="app" class="mainIndex">
         <div class="houses">
             <h1>HOUSES AT HOGWARTS</h1>
+            
             <div class="contCasas">
-                <div class="cardcasa" id="Gryffindor">
+                <div @click="navigateToHouse('Gryffindor')"class="cardcasa" id="Gryffindor">
                     <img src="/img/gryffindor.png" class="imgcasas" alt="Gryffindor escudo">
                 </div>
                 <div class="cardcasa" id="Hufflepuff">
@@ -79,16 +80,13 @@
                     <div class="package2"><a href="page/students.html" target="_blank">
                             <img src="/img/5160802.jpg" class="img w-100 h-100 object-fit-cover rounded"
                                 alt="Alumnos de Hogwarts">
-                        </a>
-                        
-                    </div>
+                        </a> </div>
                 </div>
                 <div class="package">
                     <h2 class="text-black">Spells</h2>
                     <div class="package2"><a href="page/spells.html" target="_blank">
                             <img src="/img/hechizos.png" class="img w-100 h-100 object-fit-cover rounded"
                                 alt="cuadro de referencia de hechizos">
-
                         </a>
                     </div>
                 </div>
@@ -97,7 +95,6 @@
                     <div class="package2"><a href="page/staff.html" target="_blank">
                             <img src="/img/clases-hogwarts.webp" class="img w-100 h-100 object-fit-cover rounded"
                                 alt="clases de Hogwarts">
-
                         </a>
                     </div>
                 </div>
@@ -152,6 +149,7 @@
             <span class="text">Andres</span>
         </button>
     </footer>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./Javascript/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
