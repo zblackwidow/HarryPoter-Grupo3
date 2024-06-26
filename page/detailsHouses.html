@@ -54,7 +54,7 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main id="app">
         <div class="detailshouse d-flex justify-content-center align-items-center">
             <h1 id="houseName" class="h1detail"></h1>
         </div>
@@ -63,7 +63,13 @@
             </div>
         </div>
 
-        <div class="d-flex flex-wrap justify-content-center" id="characterList"></div>
+        <div class="d-flex flex-wrap justify-content-center" id="characterList">
+            <div v-for="student in characters" class="tarjetaDetails m-3"><a :href="'/page/details.html?id=' +student.id">
+
+            <img :src="student.image" class="img w-100 h-100 object-fit-cover">
+            <div class="profile-name"> {{student.name}}</a></div>
+            </div>
+        </div>
 
     </main>
     <footer>
@@ -113,11 +119,12 @@
             <span class="text">Andres</span>
         </button>
     </footer>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="/Javascript/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+        
 
 </body>
 
