@@ -246,7 +246,7 @@ nav a {
 
 .bg-card {
   background-color: rgb(210, 170, 107);
-  /* box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 1.5); */
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 1.5);
 }
 
 .card {
