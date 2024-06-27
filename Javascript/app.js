@@ -7,7 +7,7 @@ let colorOfHouse = {
     Ravenclaw: '#4682b4',
     Hufflepuff: '#90ee90',
     Slytherin: '#ffa500',
-    Homeless: '#808080' // Color por defecto para quienes no tienen casa definida
+    Homeless: '#808080' 
   };
 
 const { createApp } = Vue
