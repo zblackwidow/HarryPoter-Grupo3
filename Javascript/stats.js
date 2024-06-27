@@ -28,7 +28,7 @@ fetch (enlaceData)
     let hombre = 0
     let otrasEspecies = 0
     
-    /* filtro Sexo */
+    
     for (let i=0; i<data.length; i++){
       
       if(data[i].species === "human" && data[i].gender === "male"){
@@ -47,48 +47,48 @@ fetch (enlaceData)
     document.getElementById("otrasEspecies").innerHTML = `${porcentajeEspecies} %`
     
 
-    // Función para calcular la edad en función del año de nacimiento
+    
     function calcularEdad(anoDeNacimiento) {
       const anoActual = new Date().getFullYear();
       return anoActual - anoDeNacimiento;
     }
 
-    // Función para obtener las 10 personas más viejas y más jóvenes
+    
     function obtenerExtremosDeEdad(personajes) {
-      // Calcular la edad de cada personaje
+     
       personajes.forEach(personaje => {
-        // Solo calcular la edad si yearOfBirth no es null o undefined
+        
         if (personaje.yearOfBirth) {
           personaje.edad = calcularEdad(personaje.yearOfBirth);
         } else {
-          personaje.edad = null; // Si no hay año de nacimiento, asignar null
+          personaje.edad = null; 
         }
       });
 
-      // Filtrar personajes sin edad (null)
+      
       const personajesConEdad = personajes.filter(personaje => personaje.edad !== null);
 
-      // Ordenar por edad de menor a mayor
+      
       personajesConEdad.sort((a, b) => a.edad - b.edad);
 
-      // Obtener las 10 personas más jóvenes
+      
       const masJovenes = personajesConEdad.slice(0, 10);
 
-      // Obtener las 10 personas más viejas (ordenadas de mayor a menor)
+      
       const masViejos = personajesConEdad.slice(-10).reverse();
 
       return { masJovenes, masViejos };
     }
 
-     // Obtener los extremos de edad de los datos
+     
      const { masJovenes, masViejos } = obtenerExtremosDeEdad(data);
 
-     // Mostrar los resultados en la tabla HTML
+     
      const ContenedorEdad = document.getElementById("topEdades");
  
-     // Iterar sobre el máximo número de filas (10 en este caso)
+     
      for (let i = 0; i < 10; i++) {
-       // Crear una nueva fila
+       
         let tablaEdades = document.createElement("tr");
        
  
@@ -98,6 +98,11 @@ fetch (enlaceData)
       let celdaEdadJoven = document.createElement("td");
       let celdaNombreViejo = document.createElement("td");
       let celdaEdadViejo = document.createElement("td");
+      celdaNombreJoven.classList.add("ps-3");
+      celdaEdadJoven.classList.add("text-center", "p-2");
+      celdaNombreViejo.classList.add("ps-3");
+      celdaEdadViejo.classList.add("text-center", "p-2");
+
 
       if (masJovenes[i]) {
         celdaNombreJoven.textContent = masJovenes[i].name;
@@ -115,17 +120,17 @@ fetch (enlaceData)
         celdaEdadViejo.textContent = '';
       }
 
-      // Agregar las celdas a la fila
+      
       tablaEdades.appendChild(celdaNombreJoven);
       tablaEdades.appendChild(celdaEdadJoven);
       tablaEdades.appendChild(celdaNombreViejo);
       tablaEdades.appendChild(celdaEdadViejo);
  
-       // Agregar la fila al cuerpo de la tabla
+       
        ContenedorEdad.appendChild(tablaEdades);
     }
 
 
 
 
-  });
+  })
