@@ -110,16 +110,16 @@
             </thead>
             <tbody>
                 <tr v-for="spells in spell" class="text-white fsTable">
-                    <th class="py-3 ms-2">🧙‍♂️{{spells.attributes.name}}</th>
-                    <td class="py-3 ms-2">{{spells.attributes.effect}}</td>
-                    <td class="py-3 ms-2">{{spells.attributes.category}}</td>
+                    <th class="py-3 ps-3">🧙‍♂️ {{spells.attributes.name}}</th>
+                    <td class="py-3 ps-3">{{spells.attributes.effect}}</td>
+                    <td class="py-3 ps-3">{{spells.attributes.category}}</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr v-if="spell.length ===  0" class=" text-center fsTable">
                     <th colspan="3" class="py-3">.·´¯`(>▂<)´¯`·. </th>
                 </tr>
-                <tr v-if="spell.length ===  0" class="text-center">
+                <tr v-if="spell.length ===  0" class="text-center fsTable">
                     <td colspan="3" class="py-3 ">🧙‍♂️🧙‍♂️No results found🧙‍♂️🧙‍♂️</td>
                 </tr>
             </tfoot>
