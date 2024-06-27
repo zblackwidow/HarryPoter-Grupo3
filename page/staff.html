@@ -78,8 +78,7 @@
                             <div v-for="dato in staffFavorite" class="card bg-body-tertiary mb-4"
                                 style="width: 7rem; height: 9rem;">
                                 <a class="w-100 h-100 position-relative" :href="'./details.html?id='+dato.id">
-                                    <img :src="dato.image" class="card-img rounded-4" :alt="dato.name"
-                                        onerror="this.src='https://e1.pxfuel.com/desktop-wallpaper/747/257/desktop-wallpaper-hogwarts-logo-hogwarts-crest.jpg'">
+                                    <img :src="dato.image" class="card-img rounded-4" :alt="dato.name">
                                     <div class="card-img-overlay d-flex row justify-content-around">
                                         <h5
                                             class="card-title text-white text-shadows text-center fw-bold position-absolute bottom-0 end-0 fs-6">
@@ -147,9 +146,8 @@
                     </div>
                     <div v-for="dato in staff" :key="dato.id" class="card bg-body-tertiary mb-4"
                         style="width: 9rem; height: 11rem;">
-                        <a class="w-100 h-100 position-relative" :href="'./details.html?id='+dato.id">
-                            <img :src="dato.image" class="card-img rounded-4" :alt="dato.name"
-                                onerror="this.src='https://e1.pxfuel.com/desktop-wallpaper/747/257/desktop-wallpaper-hogwarts-logo-hogwarts-crest.jpg'">
+                        <a id="shadowsHouse" :data-house="dato.house" @mouseenter="changeShadow" @mouseleave="resetShadow" class="w-100 h-100 position-relative rounded-4 shadowsHouse" :href="'./details.html?id='+dato.id">
+                            <img :src="dato.image" class="card-img rounded-4" :alt="dato.name">
                             <div class="card-img-overlay d-flex row justify-content-around">
                                 <h5
                                     class="card-title text-white text-shadows text-center fw-bold position-absolute bottom-0 end-0 fs-6">

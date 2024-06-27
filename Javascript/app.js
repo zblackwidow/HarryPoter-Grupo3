@@ -2,6 +2,14 @@ const urlApi = "https://potterhead-api.vercel.app/api/characters"
 let idDetails = new URL(window.location.href).searchParams.get("id")
 let urlHouse = new URL(window.location.href).searchParams.get("id");
 
+let colorOfHouse = {
+    Gryffindor: '#ff6347',
+    Ravenclaw: '#4682b4',
+    Hufflepuff: '#90ee90',
+    Slytherin: '#ffa500',
+    Homeless: '#808080' // Color por defecto para quienes no tienen casa definida
+  };
+
 const { createApp } = Vue
 
 const app = createApp({
@@ -41,6 +49,9 @@ const app = createApp({
                     }
                     if (!dato.dateOfBirth || dato.dateOfBirth.trim() === "") {
                         dato.dateOfBirth = "No data"
+                    }
+                    if (!dato.image || dato.image.trim() === "") {
+                        dato.image = "https://e1.pxfuel.com/desktop-wallpaper/747/257/desktop-wallpaper-hogwarts-logo-hogwarts-crest.jpg"
                     }
                 });
                 this.students = this.allData.filter(data => data.hogwartsStudent == true)
@@ -86,7 +97,16 @@ const app = createApp({
             } else if (window.location.href == "http://127.0.0.1:5500/page/staff.html") {
                 return this.staffFavorite.some(data => data.id === dato.id);
             }
-        }
+        },
+        changeShadow(event) {
+            let house = event.target.dataset.house; // Obtener la casa desde el dataset
+            let colorShadows = colorOfHouse[house] || '#808080'; // Obtener el color específico o color por defecto
+            event.target.style.boxShadow = `5px 5px 10px ${colorShadows}`;
+          },
+        
+          resetShadow(event) {
+            event.target.style.boxShadow = '5px 5px 10px rgba(210, 170, 107, 0.5)';
+          }
     },
     computed: {
         filterHouse() {
