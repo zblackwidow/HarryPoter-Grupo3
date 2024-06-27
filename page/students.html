@@ -79,7 +79,7 @@
                                 style="width: 7rem; height: 9rem;">
                                 <a class="w-100 h-100 position-relative" :href="'./details.html?id='+dato.id">
                                     <img :src="dato.image" class="card-img rounded-4" :alt="dato.name"
-                                        onerror="this.src='https://e1.pxfuel.com/desktop-wallpaper/747/257/desktop-wallpaper-hogwarts-logo-hogwarts-crest.jpg'">
+                                        > 
                                     <div class="card-img-overlay d-flex row justify-content-around">
                                         <h5
                                             class="card-title text-white text-shadows text-center fw-bold position-absolute bottom-0 end-0 fs-6">
@@ -141,16 +141,22 @@
                 </div>
                 <div class="container-fluid row px-1 pb-3 justify-content-center w-100 minh">
                     <div v-if="students.length == 0">
-                        <div class="alert alert-danger w-75 mx-auto fs-1 h-details d-flex align-items-center justify-content-center shadow-card"
+                        <div class="alert bg-body-tertiary w-50 mx-auto fs-1 h-details d-flex align-items-center justify-content-center shadow-card"
                             role="alert">
-                            No results found.
+                            <div class="card w-75">
+                                <img class="card-img w-100 h-25 mx-auto"
+                                src="https://thumbs.dreamstime.com/b/bola-de-cristal-sobre-el-fondo-blanco-y-el-vidrio-quebrado-plantilla-para-los-dise%C3%B1adores-48750233.jpg"
+                                alt="">
+                                <div class="card-img-overlay d-flex row justify-content-around">
+                                    <h2 class="card-title mx-auto fw-bold">No results found.</h2>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div v-for="dato in students" :key="dato.id" class="card bg-body-tertiary mb-4"
                         style="width: 9rem; height: 11rem;">
-                        <a class="w-100 h-100 position-relative" :href="'./details.html?id='+dato.id">
-                            <img :src="dato.image" class="card-img rounded-4" :alt="dato.name"
-                                onerror="this.src='https://e1.pxfuel.com/desktop-wallpaper/747/257/desktop-wallpaper-hogwarts-logo-hogwarts-crest.jpg'">
+                        <a id="shadowsHouse" :data-house="dato.house" @mouseenter="changeShadow" @mouseleave="resetShadow" class="w-100 h-100 position-relative rounded-4 shadowsHouse" :href="'./details.html?id='+dato.id">
+                            <img :src="dato.image" class="card-img rounded-4" :alt="dato.name">
                             <div class="card-img-overlay d-flex row justify-content-around">
                                 <h5
                                     class="card-title text-white text-shadows text-center fw-bold position-absolute bottom-0 end-0 fs-6">
