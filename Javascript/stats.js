@@ -98,6 +98,11 @@ fetch (enlaceData)
       let celdaEdadJoven = document.createElement("td");
       let celdaNombreViejo = document.createElement("td");
       let celdaEdadViejo = document.createElement("td");
+      celdaNombreJoven.classList.add("ps-3");
+      celdaEdadJoven.classList.add("text-center", "p-2");
+      celdaNombreViejo.classList.add("ps-3");
+      celdaEdadViejo.classList.add("text-center", "p-2");
+
 
       if (masJovenes[i]) {
         celdaNombreJoven.textContent = masJovenes[i].name;
@@ -128,4 +133,4 @@ fetch (enlaceData)
 
 
 
-  });
+  })
